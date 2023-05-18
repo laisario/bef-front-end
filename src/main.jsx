@@ -20,7 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route Component={Dashboard} path='/' />
           <Route Component={Login} path='/login' />
           <Route Component={Register} path='/register' />
-          <Route Component={InstrumentDetails} path='/:id' />
+          <Route Component={InstrumentDetails} path='/instrumento/:id' />
         </Routes>
       </AuthProvider>
     </BrowserRouter>

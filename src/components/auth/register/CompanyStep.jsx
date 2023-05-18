@@ -68,6 +68,20 @@ function CompanyStep({
   return (
     <>
       <TextField
+        label="Email"
+        fullWidth
+        labelId="email"
+        name="email"
+        value={formValues.email}
+        onChange={(e) => handleChange(e, setFormValues)}
+        onBlur={(e) =>
+          validateNotEmpty(e, setErrMsg) &&
+          validateEmail(formValues.email, setErrMsg)
+        }
+        error={!!errMsg?.email}
+        helperText={errMsg?.email}
+      />
+      <TextField
         labelId="cnpj"
         label="CNPJ"
         name="cnpj"
@@ -81,6 +95,7 @@ function CompanyStep({
         }
         error={!!errMsg?.cnpj}
         helperText={errMsg.cnpj}
+        sx={{ mt: 2 }}
       />
       <TextField
         labelId="razaoSocial"
