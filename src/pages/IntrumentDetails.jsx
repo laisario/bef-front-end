@@ -1,12 +1,27 @@
-import React from 'react';
+import Header from '../components/common/Header';
 import CalibracaoCard from '../components/instruments/cards/CalibracaoCard';
 import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from '../axios';
 
 export default function InstrumentCategories() {
-  return (
+  const [instrumento, setInstrumento] = useState([]);
+  const { id } = useParams();
 
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await axios.get(`/instrumentos/:${id}`);
+        setInstrumento(response.data);
+      } catch (e) {
+        window.localStorage.removeItem('token')
+      }
+    })();
+  }, []);
+  return (
     <>
-      <CalibracaoCard />
+      <Header />
+      <CalibracaoCard instrumento={instrumento} />
     </>
   );
 }

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
