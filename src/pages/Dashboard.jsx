@@ -4,6 +4,7 @@ import InstrumentsList from '../components/instruments/List';
 import axios from "../axios";
 
 export default function Dashboard() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [instrumentos, setInstrumentos] = useState([]);
 
   useEffect(() => {
@@ -19,7 +20,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <Header/>
+      <Header setIsSidebarOpen={setIsSidebarOpen} />
       <br/>
       <br/>
       <br/>
