@@ -20,7 +20,7 @@ export default function Instrument() {
 
   return (
     <>
-      <Header instrumento={instrumento?.descricao} />
+      <Header />
       <br />
       <br />
       <br />

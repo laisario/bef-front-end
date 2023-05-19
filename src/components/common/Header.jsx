@@ -11,16 +11,13 @@ import { Link as LinkRouter } from 'react-router-dom'
 import { useAuth } from '../../context/Auth';
 import { Hidden, Typography } from '@mui/material';
 
-export default function Header({ instrumento }) {
+export default function Header() {
     const { logout, user } = useAuth()
 
     return (
         <AppBar position="fixed">
             <Toolbar
                 sx={{
-                    // display: 'flex',
-                    // alignItems: 'center',
-                    // justifyContent: 'space-between',
                     backgroundColor: '#fff',
                     boxShadow: '0px 0px 10px 2px rgba(0, 0, 0, 0.1)',
                     padding: '5px',
