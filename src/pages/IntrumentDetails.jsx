@@ -7,7 +7,7 @@ import axios from '../axios';
 export default function InstrumentCategories() {
   const [instrumento, setInstrumento] = useState([]);
   const { id } = useParams();
-  console.log('a')
+
   useEffect(() => {
     (async () => {
       try {
