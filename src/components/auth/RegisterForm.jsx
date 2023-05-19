@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { redirect, Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Button from "@mui/material/Button";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -117,65 +117,22 @@ const validateSubmit = (formValues, errMsg) => {
 };
 
 export default function RegisterForm() {
+    const navigate = useNavigate()
     const [step, setStep] = useState(1);
-    const [formValues, setFormValues] = useState({
-        nome: "",
-        email: "",
-        telefone: "",
-        cep: "",
-        numero: "",
-        uf: "",
-        cidade: "",
-        bairro: "",
-        logradouro: "",
-        password: "",
-        password2: "",
-    });
-    const [errMsg, setErrMsg] = useState({
-        cpf: "",
-        cnpj: "",
-        password: "",
-        password2: "",
-    });
+    const [formValues, setFormValues] = useState({});
+    const [errMsg, setErrMsg] = useState({});
 
     useEffect(() => {
-        setErrMsg({
-            cpf: "",
-            cnpj: "",
-            password: "",
-            password2: "",
-        });
-    }, [
-        formValues.cpf,
-        formValues.cnpj,
-        formValues.password2,
-        formValues.password,
-    ]);
+        setErrMsg({});
+    }, [formValues]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (step === 3) {
-            await axios.post("/register/", formValues);
-            setFormValues({
-                nome: "",
-                email: "",
-                tel: "",
-                cpf: "",
-                cep: "",
-                numero: "",
-                uf: "",
-                cidade: "",
-                bairro: "",
-                logradouro: "",
-                complemento: "",
-                password: "",
-                password2: "",
-                cnpj: "",
-                razaoSocial: "",
-                unidade: "",
-                empresa: false,
-            });
-            redirect("/login");
+            const payload = {...formValues, empresa: !formValues?.pessoaFisica}
+            await axios.post("/register/", payload);
+            setFormValues({});
+            navigate("/login");
         } else {
             setStep((step) => step + 1);
         }
@@ -220,6 +177,7 @@ export default function RegisterForm() {
                             <CompanyStep
                                 handleChange={(e) => handleChange(e, setFormValues)}
                                 validateNotEmpty={validateNotEmpty}
+                                validateEmail={validateEmail}
                                 formValues={formValues}
                                 setFormValues={setFormValues}
                                 errMsg={errMsg}
@@ -285,7 +243,7 @@ export default function RegisterForm() {
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
                                 onClick={() => setStep((step) => step - 1)}
-                                style={ { backgroundColor: '#e26443' } }
+                                style={{ backgroundColor: '#e26443' }}
                             >
                                 Voltar
                             </Button>
@@ -298,14 +256,14 @@ export default function RegisterForm() {
                             fullWidth
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
-                            style={ { backgroundColor: '#e26443' } }
+                            style={{ backgroundColor: '#e26443' }}
                             disabled={step === 3 && !validateSubmit(formValues, errMsg)}
                         >
                             {step === 3 ? "Cadastrar" : "Continuar"}
                         </Button>
                     </Grid>
                 </Grid>
-                <Link to="/login" style={{textDecoration: 'none', color: '#e26443'}}>
+                <Link to="/login" style={{ textDecoration: 'none', color: '#e26443' }}>
                     Já tem uma conta? Faça login!
                 </Link>
             </Box>

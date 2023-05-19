@@ -3,10 +3,12 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Chip from '@mui/material/Chip';
 import Accordion from '@mui/material/Accordion';
+import Link from '@mui/material/Link';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import PlaceIcon from '@mui/icons-material/Place';
 import SouthIcon from '@mui/icons-material/South';
+import { Link as LinkRouter } from 'react-router-dom'
 
 import InfoCard from './cards/InfoCard';
 import CalibracaoCard from './cards/CalibracaoCard';
@@ -22,9 +24,11 @@ export default function InstrumentsList({ instrumentos }) {
                 <Paper sx={{ border: '1px solid #e8e0db', boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px' }}>
                     <Grid container p={2} alignItems="center" justifyContent="space-between">
                         <Grid item>
-                            <Typography variant="h5" sx={{ color: '#e26443' }}>
-                                {capitalizeFirstLetter(instrumento.descricao)}
-                            </Typography>
+                            <Link component={LinkRouter} to={`/instrumento/${instrumento.id}`}>
+                                <Typography variant="h5" sx={{ color: '#e26443' }}>
+                                    {capitalizeFirstLetter(instrumento.descricao)}
+                                </Typography>
+                            </Link>
                         </Grid>
                         <Grid item>
                             <Chip label={instrumento.status.nome} color={instrumento.status.cor} />

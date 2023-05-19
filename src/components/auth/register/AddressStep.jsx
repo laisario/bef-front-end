@@ -44,7 +44,6 @@ const AddressStep = ({
             <TextField
                 label="Endereço"
                 fullWidth
-                labelId="endereco"
                 name="logradouro"
                 value={formValues.logradouro}
                 onChange={(e) => handleChange(e, setFormValues)}
@@ -55,7 +54,6 @@ const AddressStep = ({
             <TextField
                 label="Bairro"
                 fullWidth
-                labelId="bairro"
                 name="bairro"
                 value={formValues.bairro}
                 onChange={(e) => handleChange(e, setFormValues)}
@@ -68,7 +66,6 @@ const AddressStep = ({
             <TextField
                 label="CEP"
                 fullWidth
-                labelId="cep"
                 name="cep"
                 value={formValues.cep}
                 onChange={(e) => handleChange(e, setFormValues)}
@@ -86,7 +83,6 @@ const AddressStep = ({
                     <TextField
                         label="Número"
                         fullWidth
-                        labelId="numero"
                         name="numero"
                         value={formValues.numero}
                         onChange={(e) => handleChange(e, setFormValues)}
@@ -100,7 +96,6 @@ const AddressStep = ({
                 <Grid item xs={6} sm={6}>
                     <TextField
                         label="Complemento *"
-                        labelId="complemento"
                         name="complemento"
                         value={formValues.complemento}
                         onChange={(e) => handleChange(e, setFormValues)}
@@ -115,7 +110,6 @@ const AddressStep = ({
                     <TextField
                         label="Cidade"
                         fullWidth
-                        labelId="cidade"
                         name="cidade"
                         value={formValues.cidade}
                         onChange={(e) => handleChange(e, setFormValues)}
@@ -131,7 +125,6 @@ const AddressStep = ({
                         required
                         fullWidth
                         name="uf"
-                        labelId="select"
                         value={formValues.uf}
                         onChange={(e) => handleChange(e, setFormValues)}
                         onBlur={(e) => validateNotEmpty(e, setErrMsg)}
@@ -140,7 +133,7 @@ const AddressStep = ({
                         displayEmpty
                         sx={{ mt: 2 }}
                     >
-                        <MenuItem value="" disabled>
+                        <MenuItem disabled>
                             UF
                         </MenuItem>
                         {siglas.map((sigla) => (

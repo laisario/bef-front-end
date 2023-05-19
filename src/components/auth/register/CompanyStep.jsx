@@ -60,6 +60,7 @@ function validateCnpj(cnpj, setErrMsg) {
 function CompanyStep({
   handleChange,
   validateNotEmpty,
+  validateEmail,
   setErrMsg,
   errMsg,
   formValues,
@@ -70,7 +71,6 @@ function CompanyStep({
       <TextField
         label="Email"
         fullWidth
-        labelId="email"
         name="email"
         value={formValues.email}
         onChange={(e) => handleChange(e, setFormValues)}
@@ -82,7 +82,6 @@ function CompanyStep({
         helperText={errMsg?.email}
       />
       <TextField
-        labelId="cnpj"
         label="CNPJ"
         name="cnpj"
         fullWidth
@@ -98,21 +97,19 @@ function CompanyStep({
         sx={{ mt: 2 }}
       />
       <TextField
-        labelId="razaoSocial"
         label="Razão Social"
-        name="razaoSocial"
+        name="razao_social"
         fullWidth
-        value={formValues.razaoSocial}
+        value={formValues.razao_social}
         onChange={handleChange}
         onBlur={(e) => validateNotEmpty(e, setErrMsg)}
-        error={!!errMsg?.razaoSocial}
-        helperText={errMsg.razaoSocial}
+        error={!!errMsg?.razao_social}
+        helperText={errMsg.razao_social}
         sx={{ mt: 2 }}
       />
       <TextField
         label={formValues.isento ? "Isento" : "Inscrição Estadual *"}
         fullWidth
-        labelId="ie"
         name="ie"
         value={formValues.ie}
         onChange={(e) => handleChange(e, setFormValues)}

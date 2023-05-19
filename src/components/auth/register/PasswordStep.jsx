@@ -16,7 +16,6 @@ const PasswordStep = ({
         <TextField
           label="Senha"
           fullWidth
-          labelId="senha"
           type="password"
           name="password"
           value={formValues.password}
@@ -34,7 +33,6 @@ const PasswordStep = ({
           <TextField
             label="Confirmar senha"
             fullWidth
-            labelId="senha2"
             type="password"
             name="password2"
             value={formValues.password2}

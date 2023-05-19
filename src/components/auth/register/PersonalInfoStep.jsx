@@ -18,7 +18,6 @@ const PersonalInfoStep = ({
                 label="Nome"
                 fullWidth
                 name="nome"
-                labelId="nome"
                 value={formValues.nome}
                 onChange={(e) => handleChange(e, setFormValues)}
                 onBlur={(e) => validateNotEmpty(e, setErrMsg)}
@@ -28,7 +27,6 @@ const PersonalInfoStep = ({
             <TextField
                 label="Email"
                 fullWidth
-                labelId="email"
                 name="email"
                 value={formValues.email}
                 onChange={(e) => handleChange(e, setFormValues)}
@@ -43,7 +41,6 @@ const PersonalInfoStep = ({
             <TextField
                 label="Telefone"
                 fullWidth
-                labelId="telefone"
                 name="telefone"
                 value={formValues.telefone}
                 onChange={(e) => handleChange(e, setFormValues)}
@@ -58,7 +55,6 @@ const PersonalInfoStep = ({
             <TextField
                 label="CPF"
                 fullWidth
-                labelId="cpf"
                 name="cpf"
                 value={formValues.cpf}
                 onChange={(e) => handleChange(e, setFormValues)}

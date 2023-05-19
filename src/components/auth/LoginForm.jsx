@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { redirect } from "react-router-dom"
+import { redirect, useNavigate } from "react-router-dom"
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
@@ -8,10 +8,10 @@ import Typography from "@mui/material/Typography";
 
 import { Link } from "react-router-dom";
 
-import axios from "../../axios";
 import { useAuth } from "../../context/Auth";
 
 export default function SignIn() {  
+    const navigate = useNavigate()
     const { login } = useAuth()
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -25,6 +25,7 @@ export default function SignIn() {
         event.preventDefault();
         const { error } = await login(email, password);
         if (error) setErrMsg(error)
+        else navigate('/')
     };
 
     return (

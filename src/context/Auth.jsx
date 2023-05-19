@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom"
+import jwt_decode from "jwt-decode";
 
 import axios from '../axios'
 
@@ -7,10 +8,10 @@ const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const token = window.localStorage.getItem('token')
-  const [user, setUser] = useState(token ? {token} : null);
+  const [user, setUser] = useState(token ? { token, nome: jwt_decode(token)?.nome } : null);
 
   useEffect(() => {
-    if (token) setUser({ token })
+    if (token) setUser({ token, nome: jwt_decode(token)?.nome })
   }, [])
 
   return (
@@ -34,9 +35,10 @@ export const useAuth = () => {
         password,
       });
       window.localStorage.setItem('token', response?.data?.access)
-      setUser({ token: response?.data?.access })
+      setUser({ token: response?.data?.access, nome: jwt_decode(response?.data?.access)?.nome })
       return { error: false }
     } catch (err) {
+      console.log(err)
       if (!err?.response) {
         return { error: "Sem resposta do server" };
       } else if (err.response?.status === 400) {
@@ -56,11 +58,11 @@ export const useAuth = () => {
 
   const authenticatedRoutes = [
     '/',
+    '/instrumento/'
   ]
 
   useEffect(() => {
-    if (user) navigate('/')
-    else if (authenticatedRoutes.includes(window.location.pathname)) navigate('/login')
+    if (!user && authenticatedRoutes.some(route => window.location.pathname.startsWith(route))) navigate('/login')
   }, [user])
 
   return { user, login, logout }
