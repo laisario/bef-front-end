@@ -5,13 +5,7 @@ import Chip from '@mui/material/Chip';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
-import Accordion from '@mui/material/Accordion';
-import Link from '@mui/material/Link';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
 import PlaceIcon from '@mui/icons-material/Place';
-import SouthIcon from '@mui/icons-material/South';
-import { Link as LinkRouter } from 'react-router-dom'
 
 import InfoCard from './cards/InfoCard';
 import CalibracaoCard from './cards/CalibracaoCard';

@@ -79,7 +79,7 @@ const validatePassword = (password, setErrMsg) => {
     setErrMsg((errMsg) => ({
         ...errMsg,
         password:
-            password.length < 8 ? "Senha deve conter no mínimo 8 caracteres" : null,
+            password?.length < 8 ? "Senha deve conter no mínimo 8 caracteres, números e caracteres especiais" : null,
     }));
 };
 
@@ -93,7 +93,7 @@ const validatePassword2 = (password2, setErrMsg, password) => {
 const validateNotEmpty = (event, setErrMsg) => {
     setErrMsg((errMsg) => ({
         ...errMsg,
-        [event.target.name]: !event.target.value.length
+        [event.target.name]: !event.target.value?.length
             ? `O campo ${["password", "password2"].includes(event.target.name)
                 ? "senha"
                 : event.target.name

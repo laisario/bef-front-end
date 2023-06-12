@@ -41,9 +41,11 @@ export const useAuth = () => {
       if (!err?.response) {
         return { error: "Sem resposta do server" };
       } else if (err.response?.status === 400) {
-        return { error: "Faltando email ou senha" };
+        return { error: "Solicitação inválida. O email e/ou senha não foram fornecidos corretamente. Verifique os dados e tente novamente" };
       } else if (err.response?.status === 401) {
-        return { error: "Não autorizado" };
+        return { error: "Email ou senha incorretos. Por favor, verifique suas credenciais e tente novamente." };
+      } else if (err.response?.status === 500) {
+        return { error: "Ocorreu um erro inesperado no servidor." };
       } else {
         return { error: "Falha no login" };
       }

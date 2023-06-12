@@ -4,7 +4,6 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 
 import { Link } from "react-router-dom";
 
@@ -28,11 +27,9 @@ export default function SignIn() {
         else navigate('/')
     };
 
+
     return (
         <Box component="form" onSubmit={handleSubmit} noValidate maxWidth={250}>
-            <Typography sx={{ color: "red" }} align="center">
-                {errMsg}
-            </Typography>
             <TextField
                 margin="normal"
                 fullWidth
@@ -41,6 +38,8 @@ export default function SignIn() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                error={errMsg}
+                // helperText={errMsg}
                 value={email}
                 onChange={(e) => {
                     setEmail(e.target.value);
@@ -58,6 +57,8 @@ export default function SignIn() {
                 onChange={(e) => {
                     setPassword(e.target.value);
                 }}
+                error={errMsg}
+                helperText={errMsg}
             />
             <Button
                 type="submit"

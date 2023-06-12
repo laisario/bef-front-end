@@ -47,25 +47,25 @@ function isValidCNPJ(value) {
   resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
   if (resultado != digitos.charAt(1)) return false;
 
-  return true;
-}
+  return true;  
+  }
 
-function validateCnpj(cnpj, setErrMsg) {
-  setErrMsg((errMsg) => ({
-    ...errMsg,
-    cnpj: !isValidCNPJ(cnpj) ? "Por favor, insira um CNPJ válido" : null,
-  }));
-}
+  function validateCnpj(cnpj, setErrMsg) {
+    setErrMsg((errMsg) => ({
+      ...errMsg,
+      cnpj: !isValidCNPJ(cnpj) ? "Por favor, insira um CNPJ válido" : null,
+    }));
+  }
 
-function CompanyStep({
-  handleChange,
-  validateNotEmpty,
-  validateEmail,
-  setErrMsg,
-  errMsg,
-  formValues,
-  setFormValues,
-}) {
+  function CompanyStep({
+    handleChange,
+    validateNotEmpty,
+    validateEmail,
+    setErrMsg,
+    errMsg,
+    formValues,
+    setFormValues,
+  }) {
   return (
     <>
       <TextField
