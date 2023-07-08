@@ -40,7 +40,7 @@ export default function InstrumentsDetails({ instrumento }) {
                     <Grid item>
                         <Typography variant="body2" color="text.secondary">
                             <Grid container alignItems="center">
-                                {instrumento.localizacao.nome}
+                                {instrumento.laboratorio}
                                 <PlaceIcon sx={{ ml: 0.5 }} fontSize='small' />
                             </Grid>
                         </Typography>
