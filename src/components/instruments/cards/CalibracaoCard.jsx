@@ -3,6 +3,8 @@ import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 import Link from '@mui/material/Link';
 import { Link as RouterLink } from 'react-router-dom';
+import { Paper } from '@mui/material';
+import Chip from '@mui/material/Chip';
 
 export default function CalibracaoCard({ instrumento, isDetail }) {
   const calibracoes = isDetail
@@ -17,13 +19,11 @@ export default function CalibracaoCard({ instrumento, isDetail }) {
       id="calibracao"
     >
       {calibracoes.map((calibracao, index) => (
-        <>
+        <Paper key={index} elevation={ isDetail ? 4 : 0} sx={ isDetail ? {marginTop: 2, padding: 1, backgroundColor: '#eceae9' }: {}}>
           <>
-            <Grid container justifyContent="space-between" sx={{ my: 1 }}>
+            <Grid container justifyContent="space-between" alignItems="center" sx={{ my: 1 }}>
               <Typography variant="body2">Resultado:</Typography>
-              <Typography variant="body2" sx={{ fontWeight: '500' }}>
-                {calibracao.aprovado ? 'Aprovado' : 'Reprovado'}
-              </Typography>
+              <Chip label={calibracao.aprovado ? 'Aprovado' : 'Reprovado'} variant="outlined" size="small" color={calibracao.aprovado ? 'success' : 'primary'} />
             </Grid>
             <Divider />
           </>
@@ -130,12 +130,9 @@ export default function CalibracaoCard({ instrumento, isDetail }) {
                   {calibracao.data_proxima_calibracao}
                 </Typography>
               </Grid>
-            { <Divider />}
             </>
           )}
-          {instrumento.calibracoes.length - 1 !== index && <><br /><br /></>}
-          
-        </>
+        </ Paper>
       ))}
 
       {!isDetail && instrumento.calibracoes.length > 1  && (

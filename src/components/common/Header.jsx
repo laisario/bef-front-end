@@ -1,6 +1,5 @@
 import Logo from '../../assets/logo.png';
 
-import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -13,7 +12,6 @@ import { Hidden, Typography } from '@mui/material';
 
 export default function Header() {
     const { logout, user } = useAuth()
-
     return (
         <AppBar position="fixed">
             <Toolbar
@@ -21,11 +19,10 @@ export default function Header() {
                     backgroundColor: '#fff',
                     boxShadow: '0px 0px 10px 2px rgba(0, 0, 0, 0.1)',
                     padding: '5px',
-
                 }}
             >
                 <Grid container justifyContent='space-between' alignItems='center'>
-                    <Grid item xs={3}>
+                    <Grid item xs={0}>
                         <img
                             src={Logo}
                             alt="Logo"
@@ -37,7 +34,7 @@ export default function Header() {
                             <Typography variant='h6' color="grey.700">Meus instrumentos</Typography>
                         </Link>
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={0}>
                         <Grid container justifyContent='flex-end' alignItems='center'>
                             {user?.nome &&
                                 <Hidden mdDown>

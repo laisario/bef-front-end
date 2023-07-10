@@ -8,7 +8,6 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const token = window.localStorage.getItem('token')
   const [user, setUser] = useState(token ? { token } : null);
-
   useEffect(() => {
     if (token) setUser({ token })
   }, [])

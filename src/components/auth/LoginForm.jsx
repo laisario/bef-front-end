@@ -4,7 +4,12 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import InputAdornment from '@mui/material/InputAdornment';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
 import { Link } from "react-router-dom";
 
 import { useAuth } from "../../context/Auth";
@@ -15,6 +20,7 @@ export default function SignIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errMsg, setErrMsg] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
 
     useEffect(() => {
         setErrMsg("");
@@ -26,6 +32,8 @@ export default function SignIn() {
         if (error) setErrMsg(error)
         else navigate('/')
     };
+
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
 
 
     return (
@@ -39,7 +47,6 @@ export default function SignIn() {
                 autoComplete="email"
                 autoFocus
                 error={errMsg}
-                // helperText={errMsg}
                 value={email}
                 onChange={(e) => {
                     setEmail(e.target.value);
@@ -50,15 +57,28 @@ export default function SignIn() {
                 fullWidth
                 name="password"
                 label="Senha"
-                type="password"
-                id="password"
+                id="outlined-adornment-password"
                 autoComplete="current-password"
                 value={password}
                 onChange={(e) => {
                     setPassword(e.target.value);
                 }}
                 error={errMsg}
+                placeholder="Senha"
                 helperText={errMsg}
+                type={showPassword ? 'text' : 'password'}
+                InputProps={{
+                    endAdornment: ( <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>)
+                }}
+                
             />
             <Button
                 type="submit"
