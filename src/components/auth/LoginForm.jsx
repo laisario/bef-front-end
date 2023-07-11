@@ -8,8 +8,6 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import InputAdornment from '@mui/material/InputAdornment';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
 import { Link } from "react-router-dom";
 
 import { useAuth } from "../../context/Auth";
@@ -91,9 +89,11 @@ export default function SignIn() {
                 Entrar
             </Button>
             <Grid container>
-                <Grid item sx={{ mt: 8 }}>
-                    <Link to="/register" style={{textDecoration: 'none', color: '#e26443'}}>
-                        Não tem conta? Inscreva-se!
+                <Grid item sx={{ mt: 8, fontSize: 14 }}>
+                    {"Não tem conta?"}
+                    {'   '}
+                    <Link to="/register" variant="subtitle2" style={{textDecoration: 'none', color: '#e26443', fontFamily: 'roboto', fontSize: 14}}>
+                        Inscreva-se!
                     </Link>
                 </Grid>
             </Grid>

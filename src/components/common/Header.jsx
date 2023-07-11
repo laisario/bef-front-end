@@ -17,8 +17,9 @@ export default function Header() {
             <Toolbar
                 sx={{
                     backgroundColor: '#fff',
-                    boxShadow: '0px 0px 10px 2px rgba(0, 0, 0, 0.1)',
-                    padding: '5px',
+                    borderBottom: '1px solid #ccc',
+                    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                    padding: '5px'
                 }}
             >
                 <Grid container justifyContent='space-between' alignItems='center'>

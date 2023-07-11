@@ -9,10 +9,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import PlaceIcon from '@mui/icons-material/Place';
 import SouthIcon from '@mui/icons-material/South';
 import { Link as LinkRouter } from 'react-router-dom';
-
-import InfoCard from './cards/InfoCard';
 import CalibracaoCard from './cards/CalibracaoCard';
-import ObservacaoCard from './cards/ObservacaoCard';
 import Card from './Card';
 
 export default function InstrumentsList({ instrumentos }) {

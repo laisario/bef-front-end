@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Accordion from '@mui/material/Accordion';
 import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';

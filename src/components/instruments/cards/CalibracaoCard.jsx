@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
@@ -19,7 +20,7 @@ export default function CalibracaoCard({ instrumento, isDetail }) {
       id="calibracao"
     >
       {calibracoes.map((calibracao, index) => (
-        <Paper key={index} elevation={ isDetail ? 4 : 0} sx={ isDetail ? {marginTop: 2, padding: 1, backgroundColor: '#eceae9' }: {}}>
+        <Paper key={index} elevation={ isDetail ? 4 : 0} sx={ isDetail ? {marginTop: 2, padding: 1, backgroundColor: '#d1c8c04c' }: {}}>
           <>
             <Grid container justifyContent="space-between" alignItems="center" sx={{ my: 1 }}>
               <Typography variant="body2">Resultado:</Typography>

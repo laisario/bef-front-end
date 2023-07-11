@@ -263,9 +263,15 @@ export default function RegisterForm() {
                         </Button>
                     </Grid>
                 </Grid>
-                <Link to="/login" style={{ textDecoration: 'none', color: '#e26443' }}>
-                    Já tem uma conta? Faça login!
-                </Link>
+                <Grid container>
+                    <Grid item sx={{ mt: 8, fontSize: 14 }}>
+                        {"Já tem uma conta?"}
+                        {'   '}
+                        <Link to="/login" variant="subtitle2" style={{textDecoration: 'none', color: '#e26443', fontFamily: 'roboto', fontSize: 14}}>
+                            Faça login!
+                        </Link>
+                    </Grid>
+                </Grid>
             </Box>
         </Container>
     );
