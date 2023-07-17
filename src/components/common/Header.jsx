@@ -10,7 +10,8 @@ import { Link as LinkRouter } from 'react-router-dom'
 import { useAuth } from '../../context/Auth';
 import { Hidden, Typography } from '@mui/material';
 
-export default function Header() {
+// eslint-disable-next-line react/prop-types
+export default function Header({isDetail}) {
     const { logout, user } = useAuth()
     return (
         <AppBar position="fixed">
@@ -32,7 +33,7 @@ export default function Header() {
                     </Grid>
                     <Grid item>
                         <Link component={LinkRouter} to="/">
-                            <Typography variant='h6' color="grey.700">Meus instrumentos</Typography>
+                            <Typography variant='h6' color="grey.700">{isDetail ? "Instrumento" :"Meus instrumentos"}</Typography>
                         </Link>
                     </Grid>
                     <Grid item xs={0}>
