@@ -71,7 +71,7 @@ const validateCpf = (cpf, setErrMsg) => {
 const validateCep = (cep, setErrMsg) => {
     setErrMsg((errMsg) => ({
         ...errMsg,
-        cep: cep.length !== 8 ? "Por favor, insira um CEP válido" : null,
+        cep: cep?.length !== 8 ? "Por favor, insira um CEP válido" : null,
     }));
 };
 
