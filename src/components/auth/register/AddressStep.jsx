@@ -45,21 +45,21 @@ const AddressStep = ({
                 label="Endereço"
                 fullWidth
                 name="logradouro"
-                value={formValues.logradouro}
+                value={formValues?.logradouro}
                 onChange={(e) => handleChange(e, setFormValues)}
                 onBlur={(e) => validateNotEmpty(e, setErrMsg)}
                 error={!!errMsg?.logradouro}
-                helperText={errMsg.logradouro}
+                helperText={errMsg?.logradouro}
             />
             <TextField
                 label="Bairro"
                 fullWidth
                 name="bairro"
-                value={formValues.bairro}
+                value={formValues?.bairro}
                 onChange={(e) => handleChange(e, setFormValues)}
                 onBlur={(e) => validateNotEmpty(e, setErrMsg)}
                 error={!!errMsg?.bairro}
-                helperText={errMsg.bairro}
+                helperText={errMsg?.bairro}
                 sx={{ mt: 2 }}
 
             />
@@ -67,14 +67,14 @@ const AddressStep = ({
                 label="CEP"
                 fullWidth
                 name="cep"
-                value={formValues.cep}
+                value={formValues?.cep}
                 onChange={(e) => handleChange(e, setFormValues)}
                 onBlur={(e) =>
                     validateNotEmpty(e, setErrMsg) &&
                     validateCep(formValues.cep, setErrMsg)
                 }
                 error={!!errMsg?.cep}
-                helperText={errMsg.cep}
+                helperText={errMsg?.cep}
                 inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
                 sx={{ mt: 2 }}
             />
@@ -84,11 +84,11 @@ const AddressStep = ({
                         label="Número"
                         fullWidth
                         name="numero"
-                        value={formValues.numero}
+                        value={formValues?.numero}
                         onChange={(e) => handleChange(e, setFormValues)}
                         onBlur={(e) => validateNotEmpty(e, setErrMsg)}
                         error={!!errMsg?.numero}
-                        helperText={errMsg.numero}
+                        helperText={errMsg?.numero}
                         inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
                         sx={{ mt: 2 }}
                     />
@@ -97,10 +97,10 @@ const AddressStep = ({
                     <TextField
                         label="Complemento *"
                         name="complemento"
-                        value={formValues.complemento}
+                        value={formValues?.complemento}
                         onChange={(e) => handleChange(e, setFormValues)}
                         error={!!errMsg?.complemento}
-                        helperText={errMsg.complemento}
+                        helperText={errMsg?.complemento}
                         sx={{ mt: 2 }}
                     />
                 </Grid>
@@ -111,11 +111,11 @@ const AddressStep = ({
                         label="Cidade"
                         fullWidth
                         name="cidade"
-                        value={formValues.cidade}
+                        value={formValues?.cidade}
                         onChange={(e) => handleChange(e, setFormValues)}
                         onBlur={(e) => validateNotEmpty(e, setErrMsg)}
                         error={!!errMsg?.cidade}
-                        helperText={errMsg.cidade}
+                        helperText={errMsg?.cidade}
                         sx={{ mt: 2 }}
                     />
                 </Grid>
@@ -125,11 +125,11 @@ const AddressStep = ({
                         required
                         fullWidth
                         name="uf"
-                        value={formValues.uf}
+                        value={formValues?.uf}
                         onChange={(e) => handleChange(e, setFormValues)}
                         onBlur={(e) => validateNotEmpty(e, setErrMsg)}
                         error={!!errMsg?.uf}
-                        helperText={errMsg.uf}
+                        helperText={errMsg?.uf}
                         displayEmpty
                         sx={{ mt: 2 }}
                     >

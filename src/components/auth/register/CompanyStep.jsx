@@ -72,7 +72,7 @@ function isValidCNPJ(value) {
         label="Email"
         fullWidth
         name="email"
-        value={formValues.email}
+        value={formValues?.email}
         onChange={(e) => handleChange(e, setFormValues)}
         onBlur={(e) =>
           validateNotEmpty(e, setErrMsg) &&
@@ -86,32 +86,32 @@ function isValidCNPJ(value) {
         name="cnpj"
         fullWidth
         inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
-        value={formValues.cnpj}
+        value={formValues?.cnpj}
         onChange={handleChange}
         onBlur={(e) =>
           validateNotEmpty(e, setErrMsg) &&
           validateCnpj(formValues.cnpj, setErrMsg)
         }
         error={!!errMsg?.cnpj}
-        helperText={errMsg.cnpj}
+        helperText={errMsg?.cnpj}
         sx={{ mt: 2 }}
       />
       <TextField
         label="Razão Social"
         name="razao_social"
         fullWidth
-        value={formValues.razao_social}
+        value={formValues?.razao_social}
         onChange={handleChange}
         onBlur={(e) => validateNotEmpty(e, setErrMsg)}
         error={!!errMsg?.razao_social}
-        helperText={errMsg.razao_social}
+        helperText={errMsg?.razao_social}
         sx={{ mt: 2 }}
       />
       <TextField
         label={formValues.isento ? "Isento" : "Inscrição Estadual *"}
         fullWidth
         name="ie"
-        value={formValues.ie}
+        value={formValues?.ie}
         onChange={(e) => handleChange(e, setFormValues)}
         disabled={formValues.isento}
         sx={{ mt: 2 }}
@@ -119,7 +119,7 @@ function isValidCNPJ(value) {
       <FormControlLabel
         control={
           <Checkbox
-            value={formValues.isento}
+            value={formValues?.isento}
             color="primary"
             checked={formValues.isento}
             onChange={() =>

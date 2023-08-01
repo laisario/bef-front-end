@@ -116,11 +116,31 @@ const validateSubmit = (formValues, errMsg) => {
     );
 };
 
+const register = async (payload) => {
+    try {
+      await axios.post("/register/", payload);
+      return { error: false }
+    } catch (err) {
+        if (!err?.response) {
+            return { error: "Sem resposta do server" };
+          } else if (err.response?.status === 400) {
+            return { error: "Preencha todos os campos obrigatórios" };
+          } else if (err.response?.status === 500) {
+            return { error: "Ocorreu um erro inesperado no servidor." };
+          } else {
+            return { error: "Falha no registro" };
+          }
+    }
+  };
+
 export default function RegisterForm() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [step, setStep] = useState(1);
     const [formValues, setFormValues] = useState({});
     const [errMsg, setErrMsg] = useState({});
+    const [showPassword, setShowPassword] = useState({ password: false, password2: false});
+
+    const handleClickShowPassword = (passName) => setShowPassword((passwords) => ({ ...passwords, [passName]: !passwords[passName]}));
 
     useEffect(() => {
         setErrMsg({});
@@ -130,9 +150,17 @@ export default function RegisterForm() {
         event.preventDefault();
         if (step === 3) {
             const payload = {...formValues, empresa: !formValues?.pessoaFisica}
-            await axios.post("/register/", payload);
-            setFormValues({});
-            navigate("/login");
+            const { error } = await register(payload)
+            if (error) {
+                setErrMsg((errMsg) => ({
+                    ...errMsg,
+                    submit: error
+                }));
+            }
+            else {
+                setFormValues({});
+                navigate("/login");
+            }
         } else {
             setStep((step) => step + 1);
         }
@@ -161,7 +189,7 @@ export default function RegisterForm() {
             >
                 {step === 1 && (
                     <>
-                        {formValues.pessoaFisica ? (
+                        {formValues?.pessoaFisica ? (
                             <PersonalInfoStep
                                 formValues={formValues}
                                 setFormValues={setFormValues}
@@ -188,12 +216,12 @@ export default function RegisterForm() {
                         <FormControlLabel
                             control={
                                 <Checkbox
-                                    value={formValues.pessoaFisica}
+                                    value={formValues?.pessoaFisica}
                                     color="primary"
-                                    checked={formValues.pessoaFisica}
+                                    checked={formValues?.pessoaFisica}
                                     onChange={() =>
                                         setFormValues((formValues) => {
-                                            if (formValues.pessoaFisica) {
+                                            if (formValues?.pessoaFisica) {
                                                 const newFormValues = { ...formValues };
                                                 delete newFormValues.pessoaFisica;
                                                 return newFormValues;
@@ -233,6 +261,8 @@ export default function RegisterForm() {
                         validateNotEmpty={validateNotEmpty}
                         validatePassword={validatePassword}
                         validatePassword2={validatePassword2}
+                        showPassword={showPassword}
+                        handleClickShowPassword={handleClickShowPassword}
                     />
                 )}
                 <Grid container spacing={2}>

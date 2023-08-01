@@ -18,7 +18,7 @@ const PersonalInfoStep = ({
                 label="Nome"
                 fullWidth
                 name="nome"
-                value={formValues.nome}
+                value={formValues?.nome}
                 onChange={(e) => handleChange(e, setFormValues)}
                 onBlur={(e) => validateNotEmpty(e, setErrMsg)}
                 error={!!errMsg?.nome}
@@ -28,7 +28,7 @@ const PersonalInfoStep = ({
                 label="Email"
                 fullWidth
                 name="email"
-                value={formValues.email}
+                value={formValues?.email}
                 onChange={(e) => handleChange(e, setFormValues)}
                 onBlur={(e) =>
                     validateNotEmpty(e, setErrMsg) &&
@@ -42,7 +42,7 @@ const PersonalInfoStep = ({
                 label="Telefone"
                 fullWidth
                 name="telefone"
-                value={formValues.telefone}
+                value={formValues?.telefone}
                 onChange={(e) => handleChange(e, setFormValues)}
                 onBlur={(e) =>
                     validateNotEmpty(e, setErrMsg) &&
@@ -56,14 +56,14 @@ const PersonalInfoStep = ({
                 label="CPF"
                 fullWidth
                 name="cpf"
-                value={formValues.cpf}
+                value={formValues?.cpf}
                 onChange={(e) => handleChange(e, setFormValues)}
                 onBlur={(e) =>
                     validateNotEmpty(e, setErrMsg) &&
                     validateCpf(formValues.cpf, setErrMsg)
                 }
                 error={!!errMsg?.cpf}
-                helperText={errMsg.cpf}
+                helperText={errMsg?.cpf}
                 inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
                 sx={{ mt: 2, mb: 1 }}
             />
