@@ -24,7 +24,7 @@ export default function CalibracaoCard({ instrumento, isDetail }) {
           <>
             <Grid container justifyContent="space-between" alignItems="center" sx={{ my: 1 }}>
               <Typography variant="body2">Resultado:</Typography>
-              <Chip label={calibracao.aprovado ? 'Aprovado' : 'Reprovado'} variant="outlined" size="small" color={calibracao.aprovado ? 'success' : 'primary'} />
+              <Chip label={calibracao.status === 'A' ? 'Aprovado' : 'Reprovado'} variant="outlined" size="small" color={calibracao.status === 'A' ? 'success' : 'primary'} />
             </Grid>
             <Divider />
           </>

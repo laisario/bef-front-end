@@ -10,7 +10,7 @@ import PlaceIcon from '@mui/icons-material/Place';
 import SouthIcon from '@mui/icons-material/South';
 import { Link as LinkRouter } from 'react-router-dom';
 import CalibracaoCard from './cards/CalibracaoCard';
-import Card from './Card';
+import CardInformation from './Card';
 
 export default function InstrumentsList({ instrumentos }) {
   function capitalizeFirstLetter(str) {
@@ -75,7 +75,7 @@ export default function InstrumentsList({ instrumentos }) {
             </Grid>
           </Grid>
 
-          <Card
+          <CardInformation
             instrumento={instrumento}
             title="Informações"
             fields={[
@@ -85,12 +85,14 @@ export default function InstrumentsList({ instrumentos }) {
               'resolucao',
               'unidade',
               'faixa_nominal',
-              'data_proxima_checagem',
+              // 'data_proxima_checagem',
+              'data_proxima_calibracao',
             ]}
             specialCases={{
               numero_de_serie: 'Número de série',
               resolucao: 'Resolução',
-              data_proxima_checagem: 'Data da próxima checagem',
+              // data_proxima_checagem: 'Data da próxima checagem',
+              data_proxima_calibracao: 'Data da próxima calibração',
             }}
           />
           <Accordion disableGutters>
