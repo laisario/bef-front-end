@@ -19,7 +19,7 @@ export default function InstrumentsDetails({ instrumento }) {
 
     if (!instrumento?.id) return null
 
-    return (<Grid key={instrumento.tag} sx={{ mb: 3 }} container justifyContent="center">
+    return (<Grid key={instrumento.tag} sx={{ mb: 6 }} container justifyContent="center">
         <Grid item xs={12} md={6}>
             <Paper sx={{ border: '1px solid #e8e0db', boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px' }}>
                 <Grid container p={2} alignItems="center" justifyContent="space-between">

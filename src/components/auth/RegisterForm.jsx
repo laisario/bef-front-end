@@ -7,6 +7,7 @@ import Checkbox from "@mui/material/Checkbox";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import { CircularProgress } from '@mui/material';
 
 import axios from "../../axios";
 import AddressStep from "./register/AddressStep";
@@ -139,6 +140,7 @@ export default function RegisterForm() {
     const [formValues, setFormValues] = useState({});
     const [errMsg, setErrMsg] = useState({});
     const [showPassword, setShowPassword] = useState({ password: false, password2: false});
+    const [isLoading, setLoading] = useState(false);
 
     const handleClickShowPassword = (passName) => setShowPassword((passwords) => ({ ...passwords, [passName]: !passwords[passName]}));
 
@@ -150,7 +152,9 @@ export default function RegisterForm() {
         event.preventDefault();
         if (step === 3) {
             const payload = {...formValues, empresa: !formValues?.pessoaFisica}
+            setLoading(true)
             const { error } = await register(payload)
+            setLoading(false)
             if (error) {
                 setErrMsg((errMsg) => ({
                     ...errMsg,
@@ -172,6 +176,7 @@ export default function RegisterForm() {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                justifyContent: 'center',
                 backgroundColor: "#fff",
                 boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.3)",
                 borderRadius: "4px",
@@ -293,6 +298,8 @@ export default function RegisterForm() {
                         </Button>
                     </Grid>
                 </Grid>
+            </Box>
+            {step === 3 && isLoading && <CircularProgress />}
                 <Grid container>
                     <Grid item sx={{ mt: 8, fontSize: 14 }}>
                         {"Já tem uma conta?"}
@@ -302,7 +309,6 @@ export default function RegisterForm() {
                         </Link>
                     </Grid>
                 </Grid>
-            </Box>
         </Container>
     );
 }
