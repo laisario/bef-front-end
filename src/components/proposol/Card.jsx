@@ -99,10 +99,12 @@ function CardProposol({ proposta }) {
           </AccordionSummary>
           <AccordionDetails>
           <CardInformation
-            fields={['anexo', 'data_aprovacao', 'preco']}
+            fields={['anexo', 'data_aprovacao', 'preco', 'data_criacao', 'data_atualizacao']}
             specialCases={{
               data_aprovacao: 'Data resultado',
-              preco: 'Preço'
+              preco: 'Preço',
+              data_criacao: 'Proposta enviada',
+              data_atualizacao: 'Última vez proposta atualizada'
             }}
             proposta={proposta}
             pontosDeCalibracao={[]}

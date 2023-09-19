@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Divider, Grid, Typography } from '@mui/material';
-import { titleCase } from '../../helpers/formatText';
+import { titleCase, formatDate } from '../../helpers/formatText';
 
 const formatarLista = (lista) => {
   return `[${lista.map(({ nome }) => nome).join(', ')}]`;
@@ -29,7 +29,7 @@ function CardInformation({
                   {specialCases[field] || titleCase(field)}:
                 </Typography>
                 <Typography variant="body2" sx={{ fontWeight: '500' }}>
-                  {proposta[field]}
+                  {field.includes('data') ? formatDate(proposta[field]) : proposta[field]}
                 </Typography>
               </Grid>
               <Divider />
