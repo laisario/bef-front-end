@@ -23,8 +23,7 @@ function Form({ formValues, setFormValues, setShowForm }) {
   const [errMsg, setErrMsg] = useState({});
   const [id, setId] = useState(1);
   const [loading, setIsLoading] = useState(false);
-  // const loc = useLocation()
-  // loc.re
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
   
