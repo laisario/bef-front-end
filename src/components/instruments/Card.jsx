@@ -7,11 +7,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import SouthIcon from '@mui/icons-material/South';
 import { Chip } from '@mui/material';
-
-const titleCase = (s) =>
-  s
-    .replace(/^[-_]*(.)/, (_, c) => c.toUpperCase())
-    .replace(/[-_]+(.)/g, (_, c) => ' ' + c.toUpperCase());
+import { titleCase } from '../../helpers/formatText';
 
 const positionOptions = {
   U: 'Em uso',

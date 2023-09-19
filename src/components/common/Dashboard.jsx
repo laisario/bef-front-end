@@ -89,9 +89,8 @@ export default function Dashboard({ children }) {
   
   const titles = {
     '/': "Meus Instrumentos",
-    '/propostas': 'Propostas',
+    '/propostas': 'Minhas Propostas',
     [`/instrumento/${id}`]: 'Instrumento'
-    
   }
 
   return (

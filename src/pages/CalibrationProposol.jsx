@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react';
 import Dashboard from '../components/common/Dashboard';
-import {
-  Grid,
-  Button,
-  Typography,
-  CircularProgress,
-} from '@mui/material';
+import { Grid, Button, Typography, CircularProgress } from '@mui/material';
 import Form from '../components/proposol/Form';
 import axios from '../axios';
+import CardProposol from '../components/proposol/Card';
+import ButtonProposol from '../components/proposol/ButtonProposol';
 
 function CalibrationProposol() {
   const [formValues, setFormValues] = useState({
@@ -49,31 +46,31 @@ function CalibrationProposol() {
           <CircularProgress />
         ) : (
           <>
-            <Grid>
-              {propostas.length ? (
-                <Grid>
-                  {propostas.map((proposta, index) => (
-                    <p key={index}>{proposta.identificacao_instrumento}</p>
-                  ))}
-                  <Button onClick={() => setShowForm(!showForm)}>
-                    {showForm ? 'Fechar fomulário' : 'Criar nova proposta'}
-                  </Button>
-                </Grid>
-              ) : (
-                <Grid>
-                  <Typography>Você não tem novas propostas</Typography>
-                  <Button onClick={() => setShowForm(!showForm)}>
-                    {showForm ? 'Fechar fomulário' : 'Criar nova proposta'}
-                  </Button>
-                </Grid>
-              )}
+            <Grid container flexDirection="column">
+              <Grid>
+                <ButtonProposol setShowForm={setShowForm} showForm={showForm} />
+              </Grid>
             </Grid>
-            {showForm && (
+            {showForm ? (
               <Form
                 formValues={formValues}
                 setFormValues={setFormValues}
                 setShowForm={setShowForm}
               />
+            ) : (
+              <Grid>
+                {propostas.length ? (
+                  <Grid xs={12} md={12}>
+                    {propostas.map((proposta, index) => (
+                      <CardProposol key={index} proposta={proposta} />
+                    ))}
+                  </Grid>
+                ) : (
+                  <Grid>
+                    <Typography>Você não tem novas propostas</Typography>
+                  </Grid>
+                )}
+              </Grid>
             )}
           </>
         )}

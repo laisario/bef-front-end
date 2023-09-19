@@ -11,11 +11,9 @@ import SouthIcon from '@mui/icons-material/South';
 import { Link as LinkRouter } from 'react-router-dom';
 import CalibracaoCard from './cards/CalibracaoCard';
 import CardInformation from './Card';
+import capitalizeFirstLetter from '../../helpers/formatText';
 
 export default function InstrumentsList({ instrumentos }) {
-  function capitalizeFirstLetter(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
   return instrumentos?.map((instrumento) => (
     <Grid
       key={instrumento.tag}

@@ -6,6 +6,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useState } from 'react';
 import axios from '../../axios';
+import { useNavigate } from 'react-router-dom';
 
 const validateNotEmpty = (event, setErrMsg) => {
   setErrMsg((errMsg) => ({
@@ -22,7 +23,8 @@ function Form({ formValues, setFormValues, setShowForm }) {
   const [errMsg, setErrMsg] = useState({});
   const [id, setId] = useState(1);
   const [loading, setIsLoading] = useState(false);
-
+  // const loc = useLocation()
+  // loc.re
   const handleSubmit = async (e) => {
     e.preventDefault();
   
@@ -34,10 +36,11 @@ function Form({ formValues, setFormValues, setShowForm }) {
         faixa_medicao_min: formValues.faixaDeMedicaoMin,
         quantidade: formValues.quantidade,
         informacoes_adicionais: formValues.informacoesAdicionais,
-        pontos_de_calibracao: formValues.pontosCalibracao,
+        pontos_de_calibracao: formValues.pontosCalibracao.map(({ponto}) => ponto),
       });
       setIsLoading(false)
       setShowForm(false);
+      location.reload()
       return { error: false };
     } catch (err) {
       setIsLoading(false)
