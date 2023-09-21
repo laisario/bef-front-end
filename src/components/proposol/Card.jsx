@@ -70,11 +70,13 @@ function CardProposol({ proposta }) {
         </AccordionSummary>
         <AccordionDetails>
           <CardInformation
-            fields={['quantidade', 'faixa_medicao_max', 'faixa_medicao_min', 'informacoes_adicionais']}
+            fields={['quantidade', 'faixa_medicao_max', 'faixa_medicao_min', 'informacoes_adicionais',  'data_criacao', 'data_atualizacao']}
             specialCases={{
               faixa_medicao_max: 'Faixa de medição máxima',
               faixa_medicao_min: 'Faixa de medição mínima',
-              informacoes_adicionais: 'Informações adicionais'
+              informacoes_adicionais: 'Informações adicionais',
+              data_criacao: 'Proposta enviada',
+              data_atualizacao: 'Última vez proposta modificada'
             }}
             proposta={proposta}
             pontosDeCalibracao={proposta.pontos_de_calibracao}
@@ -99,12 +101,10 @@ function CardProposol({ proposta }) {
           </AccordionSummary>
           <AccordionDetails>
           <CardInformation
-            fields={['anexo', 'data_aprovacao', 'preco', 'data_criacao', 'data_atualizacao']}
+            fields={['anexo', 'data_aprovacao', 'preco']}
             specialCases={{
               data_aprovacao: 'Data resultado',
               preco: 'Preço',
-              data_criacao: 'Proposta enviada',
-              data_atualizacao: 'Última vez proposta atualizada'
             }}
             proposta={proposta}
             pontosDeCalibracao={[]}
