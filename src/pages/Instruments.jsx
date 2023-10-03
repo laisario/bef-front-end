@@ -36,7 +36,7 @@ export default function Instruments() {
           }}
         >
           <SearchBar setSearch={setSearch} search={search} />
-          {!!instrumentos.length === 0 && search.length && (
+          {instrumentos.length === 0 && (
             <Typography>Nenhum instrumento encontrado</Typography>
           )}
           {loading ? (

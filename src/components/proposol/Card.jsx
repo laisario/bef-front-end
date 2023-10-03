@@ -28,6 +28,7 @@ function CardProposol({ proposta }) {
   console.log(proposta);
   return (
     <Paper
+      id={proposta.id}
       sx={{
         marginTop: 2,
         backgroundColor: 'rgba(255, 255, 255, 0.5)',

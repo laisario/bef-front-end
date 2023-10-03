@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import Dashboard from '../components/common/Dashboard';
-import { Grid, Button, Typography, CircularProgress } from '@mui/material';
+import { Grid, Typography, CircularProgress, Button } from '@mui/material';
 import Form from '../components/proposol/Form';
 import axios from '../axios';
 import CardProposol from '../components/proposol/Card';
 import ButtonProposol from '../components/proposol/ButtonProposol';
+import PropostaTable from '../components/proposol/propostasTable';
 
-function CalibrationProposol() {
+function Propostas() {
   const [formValues, setFormValues] = useState({
     instrumentoName: '',
     faixaDeMedicaoMax: null,
@@ -18,6 +19,7 @@ function CalibrationProposol() {
   const [showForm, setShowForm] = useState(false);
   const [loading, setIsLoading] = useState(false);
   const [propostas, setPropostas] = useState([]);
+  console.log(showForm);
   useEffect(() => {
     (async () => {
       try {
@@ -46,11 +48,6 @@ function CalibrationProposol() {
           <CircularProgress />
         ) : (
           <>
-            <Grid container flexDirection="column">
-              <Grid>
-                <ButtonProposol setShowForm={setShowForm} showForm={showForm} />
-              </Grid>
-            </Grid>
             {showForm ? (
               <Form
                 formValues={formValues}
@@ -60,11 +57,12 @@ function CalibrationProposol() {
             ) : (
               <Grid>
                 {propostas.length ? (
-                  <Grid xs={12} md={12}>
-                    {propostas.map((proposta, index) => (
-                      <CardProposol key={index} proposta={proposta} />
-                    ))}
-                  </Grid>
+                  <PropostaTable
+                    propostas={propostas}
+                    Form={Form}
+                    setShowForm={setShowForm}
+                    showForm={showForm}
+                  />
                 ) : (
                   <Grid>
                     <Typography>Você não tem novas propostas</Typography>
@@ -79,4 +77,4 @@ function CalibrationProposol() {
   );
 }
 
-export default CalibrationProposol;
+export default Propostas;

@@ -167,3 +167,4 @@ export default function Dashboard({ children }) {
     </Box>
   );
 }
+Dashboard.displayName = 'MyApp';

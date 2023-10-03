@@ -16,7 +16,7 @@ export default function SimpleBottomNavigation() {
         sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}
         elevation={3}
       >
-        <BottomNavigation showLabels fixed value={pathname}>
+        <BottomNavigation showLabels  value={pathname}>
           <BottomNavigationAction
             label="Página Inicial"
             icon={<HomeIcon />}

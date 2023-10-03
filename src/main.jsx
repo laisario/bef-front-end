@@ -14,7 +14,8 @@ import Register from './pages/Register'
 import InstrumentDetails from './pages/Instrument';
 import theme from './theme'
 import Instruments from './pages/Instruments';
-import CalibrationProposol from './pages/CalibrationProposol';
+import Propostas from './pages/Propostas';
+import Proposta from './pages/Proposta';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -26,7 +27,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route Component={Login} path='/login' />
             <Route Component={Register} path='/register' />
             <Route Component={InstrumentDetails} path='/instrumento/:id' />
-            <Route Component={CalibrationProposol} path='/propostas' />
+            <Route Component={Propostas} path='/propostas' />
+            <Route Component={Proposta} path='/proposta/:id' />
           </Routes>
         </ThemeProvider>
       </AuthProvider>

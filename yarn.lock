@@ -431,21 +431,7 @@
     "prop-types" "^15.8.1"
     "react-is" "^18.2.0"
 
-"@mui/base@5.0.0-beta.11":
-  "integrity" "sha512-FdKZGPd8qmC3ZNke7CNhzcEgToc02M6WYZc9hcBsNQ17bgAd3s9F//1bDDYgMVBYxDM71V0sv/hBHlOY4I1ZVA=="
-  "resolved" "https://registry.npmjs.org/@mui/base/-/base-5.0.0-beta.11.tgz"
-  "version" "5.0.0-beta.11"
-  dependencies:
-    "@babel/runtime" "^7.22.6"
-    "@emotion/is-prop-valid" "^1.2.1"
-    "@mui/types" "^7.2.4"
-    "@mui/utils" "^5.14.5"
-    "@popperjs/core" "^2.11.8"
-    "clsx" "^2.0.0"
-    "prop-types" "^15.8.1"
-    "react-is" "^18.2.0"
-
-"@mui/core-downloads-tracker@^5.13.0", "@mui/core-downloads-tracker@^5.14.5":
+"@mui/core-downloads-tracker@^5.13.0":
   "integrity" "sha512-+wpGH1USwPcKMFPMvXqYPC6fEvhxM3FzxC8lyDiNK/imLyyJ6y2DPb1Oue7OGIKJWBmYBqrWWtfovrxd1aJHTA=="
   "resolved" "https://registry.npmjs.org/@mui/core-downloads-tracker/-/core-downloads-tracker-5.14.5.tgz"
   "version" "5.14.5"
@@ -456,22 +442,6 @@
   "version" "5.11.16"
   dependencies:
     "@babel/runtime" "^7.21.0"
-
-"@mui/joy@^5.0.0-beta.2":
-  "integrity" "sha512-5NfZcOYufTOSXh0b34YZzF1CHwuHf07cgSNdyn3WUUwg67oyNOPKhaskttX6aSp0j8Rf8OpKzd+7Ni6Em0jPgQ=="
-  "resolved" "https://registry.npmjs.org/@mui/joy/-/joy-5.0.0-beta.2.tgz"
-  "version" "5.0.0-beta.2"
-  dependencies:
-    "@babel/runtime" "^7.22.6"
-    "@mui/base" "5.0.0-beta.11"
-    "@mui/core-downloads-tracker" "^5.14.5"
-    "@mui/system" "^5.14.5"
-    "@mui/types" "^7.2.4"
-    "@mui/utils" "^5.14.5"
-    "clsx" "^2.0.0"
-    "csstype" "^3.1.2"
-    "prop-types" "^15.8.1"
-    "react-is" "^18.2.0"
 
 "@mui/material@^5.0.0", "@mui/material@^5.13.0":
   "integrity" "sha512-ckS+9tCpAzpdJdaTF+btF0b6mF9wbXg/EVKtnoAWYi0UKXoXBAVvEUMNpLGA5xdpCdf+A6fPbVUEHs9TsfU+Yw=="
@@ -510,7 +480,7 @@
     "csstype" "^3.1.2"
     "prop-types" "^15.8.1"
 
-"@mui/system@^5.12.3", "@mui/system@^5.14.5":
+"@mui/system@^5.12.3":
   "integrity" "sha512-mextXZHDeGcR7E1kx43TRARrVXy+gI4wzpUgNv7MqZs1dvTVXQGVeAT6ydj9d6FUqHBPMNLGV/21vJOrpqsL+w=="
   "resolved" "https://registry.npmjs.org/@mui/system/-/system-5.14.5.tgz"
   "version" "5.14.5"
@@ -561,7 +531,7 @@
     "@nodelib/fs.scandir" "2.1.5"
     "fastq" "^1.6.0"
 
-"@popperjs/core@^2.11.7", "@popperjs/core@^2.11.8":
+"@popperjs/core@^2.11.7":
   "integrity" "sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A=="
   "resolved" "https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz"
   "version" "2.11.8"
@@ -871,6 +841,13 @@
   "integrity" "sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ=="
   "resolved" "https://registry.npmjs.org/csstype/-/csstype-3.1.2.tgz"
   "version" "3.1.2"
+
+"date-fns@^2.29.3":
+  "integrity" "sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw=="
+  "resolved" "https://registry.npmjs.org/date-fns/-/date-fns-2.30.0.tgz"
+  "version" "2.30.0"
+  dependencies:
+    "@babel/runtime" "^7.21.0"
 
 "debug@^4.1.0", "debug@^4.1.1", "debug@^4.3.2":
   "integrity" "sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ=="

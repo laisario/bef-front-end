@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+
 import { Box, Grid, TextField, Button, Typography, Paper, CircularProgress } from '@mui/material';
 import StraightenIcon from '@mui/icons-material/Straighten';
 import Chip from '@mui/material/Chip';
@@ -6,7 +7,6 @@ import Autocomplete from '@mui/material/Autocomplete';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useState } from 'react';
 import axios from '../../axios';
-import { useNavigate } from 'react-router-dom';
 
 const validateNotEmpty = (event, setErrMsg) => {
   setErrMsg((errMsg) => ({
@@ -111,7 +111,7 @@ function Form({ formValues, setFormValues, setShowForm }) {
           <TextField
             margin="normal"
             name="instrumentoName"
-            value={formValues.instrumentoName}
+            value={formValues?.instrumentoName}
             label="Identificação instrumento"
             onChange={(e) => handleChange(e)}
             placeholder="Identificação instrumento"
@@ -127,7 +127,7 @@ function Form({ formValues, setFormValues, setShowForm }) {
                 margin="normal"
                 type="number"
                 name="faixaDeMedicaoMax"
-                value={formValues.faixaDeMedicaoMax}
+                value={formValues?.faixaDeMedicaoMax}
                 label="Faixa de medição"
                 onChange={(e) => handleChange(e)}
                 placeholder="Máxima"
@@ -142,7 +142,7 @@ function Form({ formValues, setFormValues, setShowForm }) {
                 margin="normal"
                 type="number"
                 name="faixaDeMedicaoMin"
-                value={formValues.faixaDeMedicaoMin}
+                value={formValues?.faixaDeMedicaoMin}
                 label="Faixa de medição"
                 onChange={(e) => handleChange(e)}
                 placeholder="Mínima"
@@ -157,7 +157,7 @@ function Form({ formValues, setFormValues, setShowForm }) {
                 margin="normal"
                 type="number"
                 name="quantidade"
-                value={formValues.quantidade}
+                value={formValues?.quantidade}
                 label="Quantidade"
                 onChange={(e) => handleChange(e)}
                 placeholder="Quantidade"
@@ -173,7 +173,7 @@ function Form({ formValues, setFormValues, setShowForm }) {
             type="text"
             multiline
             name="informacoesAdicionais"
-            value={formValues.informacoesAdicionais}
+            value={formValues?.informacoesAdicionais}
             label="Informações adicionais"
             onChange={(e) => handleChange(e)}
             placeholder="Informações adicionais"
@@ -231,6 +231,7 @@ function Form({ formValues, setFormValues, setShowForm }) {
           </Button>
           {loading && <CircularProgress />}
         </Box>
+        <Button onClick={ () => setShowForm(false) } color='primary'>Ver propostas</Button>
       </Grid>
     </Paper>
   );
